@@ -10,8 +10,9 @@ class UsersController < ApplicationController
   end
   
   def create
+    # debugger
     @user = User.new(user_params)
-    @user.password = params[:password]
+    # @user.password = params[:password]
     if @user.save
       redirect_to users_url
     else
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).allow(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
   
 end
