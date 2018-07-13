@@ -9,15 +9,21 @@
   </head>
 
   <body>
+    <header>
+    
     <% if self.controller.logged_in? %>
-      <h1>Hello <%= current_user.email %>!</h1>
+      <h4>Hello <%= current_user.email %>!</h4>
       <%= button_to "Sign Out", session_url(current_user), method: "delete"  %>
     <% else  %>
+    <nav>
       <%= link_to "Log In", new_session_url%>
-      <br>
       <%= link_to "Sign Up", new_user_url%>
-    <% end %>
-    
+    </nav>
+    <% end %>   
+    <h1>Welcome to the Music App</h1>
+ 
+  </header>
+
     <%= yield %>
   </body>
 </html>
